@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
-import './App.css';
+// import Homepage from './components/pages/homepage';
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+// Components and Pages
+import * as Pages from './components/pages';
+import * as Elements from './components/elements';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>TESTING!!!!!!!!!!!!!!!!!!!!!</h1>
-        <h2>test</h2>
-      </div>
+      <Router>
+        <div className='ui container'>
+          <Elements.Navbar />
+          <Switch>
+            <Route exact path="/" component={Pages.Homepage} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
