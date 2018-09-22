@@ -14,6 +14,8 @@ class App extends Component {
           <Elements.Navbar />
           <Switch>
             <Route exact path="/" component={Pages.Homepage} />
+            {/* <Route exact path='/google' component={Redirect} loc='www.google.com' /> */}
+            <Route component={Pages.NoMatch} />
           </Switch>
         </div>
       </Router>
@@ -22,3 +24,5 @@ class App extends Component {
 }
 
 export default App;
+
+{/* <Route path='/privacy-policy' component={() => window.location = 'https://example.zendesk.com/hc/en-us/articles/123456789-Privacy-Policies'} /> */ }
