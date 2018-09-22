@@ -23,3 +23,15 @@ extra cash doing it, but have never figured out how Hidden Talent allows individ
 in a way that is controlled by both users. This application will allow that professional to exhibit a portfolio of 
 
 their skills to people (individuals and/or businesses) looking for a talent that won't break the bank.
+
+• Utilizes ReactJS
+• Utilizes a Node and Express Web Server
+• Using MongoDB Database with Mongoose ORM  
+• You will find both GET and POST routes for retrieving and adding new data
+• Deployed on Heroku
+• New libraries used: Semantic-UI and ------
+• Involves the authentication of users
+• Polished frontend / UI
+• Contains folder structure that meets MVC Paradigm
+• Good quality coding standards(indentation, scoping, naming)
+
