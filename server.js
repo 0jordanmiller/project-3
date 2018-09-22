@@ -2,9 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const mongoose = require("mongoose");
+const passportSetup = require('./config/passport-setup');
+const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
-// const routes = require("./routes/");
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,9 +15,13 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // Add routes, both API and view
-// app.use(routes);
+app.use(passportSetup.initialize())
+
+app.use(routes);
+
 
 // Send every request to React app
+
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
