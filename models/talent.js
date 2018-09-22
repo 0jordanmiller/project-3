@@ -9,6 +9,6 @@ const talentSchema = new Schema({
   zipcode: { Integer, required: true}
 });
 
-const Talent = mongoose.model("Book", talentSchema);
+const Talent = mongoose.model("Talent", talentSchema);
 
-module.exports = Book; 
+module.exports = Talent; 
