@@ -15,6 +15,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Pages.Homepage} />
             <Route exact path="/profile" component={Pages.Profile} />
+            <Route exact path="/searchresults" component={Pages.Searchpage} />
+            
+
             {/* <Route exact path='/google' component={Redirect} loc='www.google.com' /> */}
             <Route component={Pages.NoMatch} />
           </Switch>
