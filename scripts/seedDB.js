@@ -69,17 +69,6 @@ const talentSeed = [
 
 ]
 
-
-
-
-
-
-
-
-
-
-
-
 db.Talent
   .remove({})
   .then(() => db.Talent.collection.insertMany(talentSeed))
