@@ -9,6 +9,8 @@ mongoose.connect(
 
 const talentSeed = [
     {
+        username: "",
+        password: "",
         talent: "tutor",
         name: "Paul Miller" ,
         contact: "",
@@ -17,6 +19,8 @@ const talentSeed = [
 
     },
     {
+        username: "",
+        password: "",
         talent: "tutor",
         name: "Laura Daniels",
         contact: "",
@@ -25,6 +29,8 @@ const talentSeed = [
 
     },
     {
+        username: "",
+        password: "",
         talent: "web developer",
         name: "Scott Smith",
         contact: "",
@@ -32,6 +38,8 @@ const talentSeed = [
         zipcode: 27608
     },
     {
+        username: "",
+        password: "",
         talent: "home improvement",
         name: "Mike Johnson",
         contact: "",
@@ -39,6 +47,8 @@ const talentSeed = [
         zipcode: 27610
     },
     {
+        username: "",
+        password: "",
         talent: "web developer",
         name: "Allison Webb",
         contact: "",
@@ -46,6 +56,8 @@ const talentSeed = [
         zipcode: 27612
     },
     {
+        username: "",
+        password: "",
         talent: "home improvement",
         name: "George Williams",
         contact: "",
@@ -53,6 +65,8 @@ const talentSeed = [
         zipcode: 27609
     },
     {
+        username: "",
+        password: "",
         talent: "web developer",
         name: "Jordan Howard",
         contact: "",
@@ -60,6 +74,8 @@ const talentSeed = [
         zipcode: 27608
     },
     {
+        username: "",
+        password: "",
         talent: "tutor",
         name: "Harrison Mills",
         contact: "",
