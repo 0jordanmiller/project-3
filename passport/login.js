@@ -1,6 +1,6 @@
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/talent');
-// var bCrypt = require('bcrypt-nodejs');
+var bCrypt = require('bcrypt-nodejs');
 
 // passport/login.js
 const strategy = new LocalStrategy({
@@ -20,15 +20,19 @@ const strategy = new LocalStrategy({
 
                 }
                 // User exists but wrong password, log the error 
-                // if (!isValidPassword(user, password)) {
-                //     console.log('Invalid Password');
-                //     return done(null, false);
-                // }
+                if (!isValidPassword(user, password)) {
+                    console.log('Invalid Password');
+                    return done(null, false);
+                }
                 // User and password both match, return user from 
                 // done method which will be treated like success
                 return done(null, user);
             }
         );
-    });
+        var isValidPassword = function (user, password) {
+            return bCrypt.compareSync(password, user.password);
+        }
+    }
+);
 
 module.exports = strategy

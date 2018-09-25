@@ -3,6 +3,7 @@ import axios from 'axios';
 // import Homepage from './components/pages/homepage';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 // Components and Pages
+
 import * as Pages from './components/pages';
 import * as Elements from './components/elements';
 
@@ -71,17 +72,23 @@ class App extends Component {
 
 
   render() {
+    // let loggedIn;
+    // if (!this.state.loggedin) {
+    //   return (
+    //     loggedIn = <Menu.Item >You're logged in!</Menu.Item>
+    //   )
+    // }
+
     return (
       <Router>
         <div className='ui container'>
-          <Elements.Navbar />
+          <Elements.Navbar isLoggedin={this.state.loggedIn} />
           <Switch>
             <Route exact path="/" component={Pages.Homepage} />
-
             <Route exact path="/profile" component={Pages.Profile} />
-
             <Route exact path="/searchresults" component={Pages.Searchpage} />
-            <Route exact path="/loginregister" render={() => <Pages.Login _login={this._login} />} />
+            <Route exact path="/register" render={() => <Pages.Register />} />
+            <Route exact path="/login" render={() => <Pages.Login _login={this._login} />} />
 
 
             {/* <Route exact path='/loginregister' component={Pages.Login} /> */}
