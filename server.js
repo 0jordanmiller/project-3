@@ -23,6 +23,14 @@ if (process.env.NODE_ENV === "production") {
 
 // app.use(session({ secret: 'mySecretKey' }));
 
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: true,
+    saveUninitialized: true
+  })
+); // session secret
+
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
@@ -34,18 +42,15 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/hidden_talents"
 );
 
-const db = mongoose.connection
-db.on('error', err => {
-  console.log(`There was an error connecting to the database: ${err}`)
-})
-db.once('open', () => {
-  console.log(
-    `You have successfully connected to your mongo database!`
-  )
-})
-
+const db = mongoose.connection;
+db.on("error", err => {
+  console.log(`There was an error connecting to the database: ${err}`);
+});
+db.once("open", () => {
+  console.log(`You have successfully connected to your mongo database!`);
+});
 
 // Start the API server
-app.listen(PORT, function () {
+app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
