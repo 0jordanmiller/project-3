@@ -77,6 +77,9 @@ class App extends Component {
           <Elements.Navbar />
           <Switch>
             <Route exact path="/" component={Pages.Homepage} />
+
+            <Route exact path="/profile" component={Pages.Profile} />
+
             <Route exact path="/searchresults" component={Pages.Searchpage} />
             <Route exact path="/loginregister" render={() => <Pages.Login _login={this._login} />} />
 
