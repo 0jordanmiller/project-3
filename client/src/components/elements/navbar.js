@@ -25,8 +25,7 @@ class Navbar extends Component {
                     <Link to='/portfolio'><Menu.Item name='Register' active={activeItem === 'Register'} onClick={this.handleItemClick} /></Link>
                     <Link to='/profile'><Menu.Item name='Profile' active={activeItem === 'Profile'} onClick={this.handleItemClick} /></Link>
                     <Menu.Menu position='right'>
-                        <a href='/auth/google'><Menu.Item name='login' link={true} active={activeItem === 'login'} onClick={this.handleItemClick}></Menu.Item></a>
-                        <Link to='/register'><Menu.Item name='register' active={activeItem === 'register'} onClick={this.handleItemClick} /></Link>
+                        <Link to='/loginregister'><Menu.Item name='login' link={true} active={activeItem === 'login'} onClick={this.handleItemClick}></Menu.Item></Link>
                     </Menu.Menu>
                 </Menu>
 
