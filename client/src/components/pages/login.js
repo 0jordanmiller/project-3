@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Form, Button, Card } from 'semantic-ui-react';
-import { Link } from "react-router-dom";
+import { Grid, Form, Card } from 'semantic-ui-react';
 
 class Login extends Component {
     constructor() {
