@@ -4,19 +4,23 @@ const db = require("../models");
 
 mongoose.connect(
     process.env.MONGOD_URI ||
-    "mongodb://localhost/"
+    "mongodb://localhost/hidden_talents"
 );
 
 const talentSeed = [
     {
+        username: "aaa",
+        password: "aaa",
         talent: "tutor",
-        name: "Paul Miller" ,
+        name: "Paul Miller",
         contact: "",
-        bio: "Math tutor for 5$ an hour",
+        bio: "Math tutor for $5 an hour",
         zipcode: 27612
 
     },
     {
+        username: "",
+        password: "",
         talent: "tutor",
         name: "Laura Daniels",
         contact: "",
@@ -25,6 +29,8 @@ const talentSeed = [
 
     },
     {
+        username: "",
+        password: "",
         talent: "web developer",
         name: "Scott Smith",
         contact: "",
@@ -32,6 +38,8 @@ const talentSeed = [
         zipcode: 27608
     },
     {
+        username: "",
+        password: "",
         talent: "home improvement",
         name: "Mike Johnson",
         contact: "",
@@ -39,6 +47,8 @@ const talentSeed = [
         zipcode: 27610
     },
     {
+        username: "",
+        password: "",
         talent: "web developer",
         name: "Allison Webb",
         contact: "",
@@ -46,6 +56,8 @@ const talentSeed = [
         zipcode: 27612
     },
     {
+        username: "",
+        password: "",
         talent: "home improvement",
         name: "George Williams",
         contact: "",
@@ -53,6 +65,8 @@ const talentSeed = [
         zipcode: 27609
     },
     {
+        username: "",
+        password: "",
         talent: "web developer",
         name: "Jordan Howard",
         contact: "",
@@ -60,6 +74,8 @@ const talentSeed = [
         zipcode: 27608
     },
     {
+        username: "",
+        password: "",
         talent: "tutor",
         name: "Harrison Mills",
         contact: "",
@@ -69,25 +85,14 @@ const talentSeed = [
 
 ]
 
-
-
-
-
-
-
-
-
-
-
-
 db.Talent
-  .remove({})
-  .then(() => db.Talent.collection.insertMany(talentSeed))
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+    .remove({})
+    .then(() => db.Talent.collection.insertMany(talentSeed))
+    .then(data => {
+        console.log(data.result.n + " records inserted!");
+        process.exit(0);
+    })
+    .catch(err => {
+        console.error(err);
+        process.exit(1);
+    });

@@ -9,7 +9,7 @@ const talentSchema = new Schema({
   name: { type: String, required: true },
   contact: { type: String, required: true },
   bio: { type: String, required: true },
-  zipcode: { Integer, required: true }
+  zipcode: { type: Number, required: true }
 });
 
 const Talent = mongoose.model("Talent", talentSchema);
