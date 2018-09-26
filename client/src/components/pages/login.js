@@ -9,8 +9,8 @@ class Login extends Component {
             password: '',
             redirect: null
         }
-        this.handleSubmit = this.handleSubmit.bind(this) //what is happening here?
-        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
@@ -35,7 +35,7 @@ class Login extends Component {
                         <Card>
                             <Form>
                                 <Form.Input name='username' value={this.state.username} onChange={this.handleChange} placeholder='Username' />
-                                <Form.Input name='password' value={this.state.password} onChange={this.handleChange} placeholder='Password' />
+                                <Form.Input name='password' value={this.state.password} onChange={this.handleChange} placeholder='Password' type='password' />
                                 <Form.Button onClick={this.handleSubmit} content='Login' type='submit' />
                             </Form>
                         </Card>
