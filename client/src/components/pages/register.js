@@ -29,7 +29,13 @@ class Register extends Component {
     axios
       .post("/auth/register", {
         username: this.state.username,
-        password: this.state.password
+        password: this.state.password,
+        zipcode: this.state.zipcode,
+        bio: this.state.bio,
+        talent: this.state.talent,
+        contact: this.state.contact,
+        name: this.state.name
+        // ADD MORE!!!!!!!!!!!!!!!!!!!!!!!!!
       })
       .then(response => {
         console.log(response);
@@ -74,7 +80,7 @@ class Register extends Component {
           <Form.Group>
             <Form.Field
               onChange={this.handleChange}
-              name="email"
+              name="contact"
               control={Input}
               label="Email"
             />
@@ -91,6 +97,12 @@ class Register extends Component {
               name="bio"
               control={TextArea}
               label="Bio"
+            />
+            <Form.Field
+              onChange={this.handleChange}
+              name="talent"
+              control={TextArea}
+              label="Talents"
             />
           </Form.Group>
           <Form.Field
