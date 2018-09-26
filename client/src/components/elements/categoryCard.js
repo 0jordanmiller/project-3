@@ -1,14 +1,12 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 
 const CategoryCard = (props) => (
     <div>
-        <Card
-            header={props.headers}
-            description={props.description}
-        />
+        <Button content={props.content} ></Button>
+            
+    
     </div>
 )
-
 
 export default CategoryCard
