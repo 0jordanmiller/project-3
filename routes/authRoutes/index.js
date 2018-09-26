@@ -3,7 +3,7 @@ const passport = require("../../passport");
 
 router.post(
   "/auth/login",
-  function(req, res, next) {
+  function (req, res, next) {
     console.log(req.body);
     console.log("================");
     next();
@@ -20,12 +20,21 @@ router.post(
     res.json({ user: cleanUser });
   }
 );
+router.get('/auth/user', (req, res, next) => {
+  console.log('===== user!!======')
+  console.log(req.user)
+  if (req.user) {
+    return res.json({ user: req.user })
+  } else {
+    return res.json({ user: null })
+  }
+})
 
-router.get("/checkuser", (req, res) => {
-  res.json(req.user);
-});
+// router.get("/checkuser", (req, res) => {
+//   res.json(req.user);
+// });
 
-router.post("/logout", (req, res) => {
+router.post("/auth/logout", (req, res) => {
   if (req.user) {
     req.session.destroy();
     res.clearCookie("connect.sid"); // clean up!
@@ -53,7 +62,7 @@ router.post(
   })
 );
 
-router.get("/signout", function(req, res) {
+router.get("/signout", function (req, res) {
   req.logout();
   res.redirect("/");
 });

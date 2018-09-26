@@ -3,14 +3,12 @@ const env = require("dotenv").config();
 const passport = require("passport");
 const session = require("express-session");
 const bodyParser = require("body-parser");
-const path = require("path");
 const mongoose = require("mongoose");
 
 // const passportSetup = require("./config/passport-setup");
 const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT || 3001;
-
+const PORT = 3001 || process.env.PORT;
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -21,7 +19,6 @@ if (process.env.NODE_ENV === "production") {
 
 // Add routes, both API and view
 
-// app.use(session({ secret: 'mySecretKey' }));
 
 app.use(
   session({
@@ -42,15 +39,15 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/hidden_talents"
 );
 
-const db = mongoose.connection;
-db.on("error", err => {
-  console.log(`There was an error connecting to the database: ${err}`);
-});
-db.once("open", () => {
-  console.log(`You have successfully connected to your mongo database!`);
-});
+// const db = mongoose.connection;
+// db.on("error", err => {
+//   console.log(`There was an error connecting to the database: ${err}`);
+// });
+// db.once("open", () => {
+//   console.log(`You have successfully connected to your mongo database!`);
+// });
 
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });

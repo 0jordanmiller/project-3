@@ -5,9 +5,10 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 // Components and Pages
+import { Menu } from 'semantic-ui-react';
 
 import * as Pages from "./components/pages";
 import * as Elements from "./components/elements";
@@ -19,7 +20,9 @@ class App extends Component {
       loggedIn: false,
       user: null
     };
-    this._login = this._login.bind(this); //what is happening here?
+    this._login = this._login.bind(this);
+    this._logout = this._logout.bind(this);
+
   }
 
   componentDidMount() {
@@ -38,6 +41,7 @@ class App extends Component {
         });
       }
     });
+    console.log(this.state);
   }
 
   _login(username, password) {
@@ -52,12 +56,13 @@ class App extends Component {
         if (response.status === 200) {
           // update the state
           this.setState({
-            loggedIn: true
-            // user: response.data.user
+            loggedIn: true,
+            user: response.data.user
           });
         }
-        console.log(this.state);
       });
+    console.log(this.state);
+
   }
 
   _logout(event) {
@@ -75,20 +80,19 @@ class App extends Component {
   }
 
   render() {
-    // let loggedIn;
-    // if (!this.state.loggedin) {
-    //   return (
-    //     loggedIn = <Menu.Item >You're logged in!</Menu.Item>
-    //   )
+    // let userObj
+    // if (this.state.user) {
+    //   userObj = this.state.user
+    //   console.log(userObj.name);
     // }
 
     return (
       <Router>
         <div className="ui container">
-          <Elements.Navbar isLoggedin={this.state.loggedIn} />
+          <Elements.Navbar isLoggedIn={this.state.loggedIn} _logout={this._logout} />
           <Switch>
             <Route exact path="/" component={Pages.Homepage} />
-            <Route exact path="/profile" component={Pages.Profile} />
+            <Route exact path="/profile" info={'testing'} anything={'anything'} component={Pages.Profile} />
             <Route exact path="/searchresults" component={Pages.Searchpage} />
             <Route exact path="/register" render={() => <Pages.Register />} />
             <Route
