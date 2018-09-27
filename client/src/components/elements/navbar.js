@@ -11,7 +11,7 @@ class Navbar extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.isLogg);
+    // console.log(this.props.isLogg);
   }
 
   handleItemClick = (e, { name }) => {
@@ -20,34 +20,38 @@ class Navbar extends Component {
     });
   };
 
-  handleLogout = (event) => {
+  handleLogout = event => {
     this.props._logout(event);
-  }
+  };
 
   render() {
     // This tells the navbar to render either a login button or a message saying you're logged in
-    console.log(this.props.isLoggedIn);
+    // console.log(this.props.isLoggedIn);
     let loggedInNavbar;
-    let loginButton
-    let logoutButton
+    let loginButton;
+    let logoutButton;
     if (this.props.isLoggedIn) {
       loggedInNavbar = "You're logged in!";
-      logoutButton = <Menu.Item name='logout' active={activeItem === "logout"} onClick={this.handleLogout} />
-
+      logoutButton = (
+        <Menu.Item
+          name="logout"
+          active={activeItem === "logout"}
+          onClick={this.handleLogout}
+        />
+      );
     } else {
       loggedInNavbar = "Not logged in";
-      loginButton = <NavLink to="/login">
-        <Menu.Item
-          name="login"
-          NavLink={true}
-          active={activeItem === "login"}
-          onClick={this.handleItemClick}
-        />
-      </NavLink>;
+      loginButton = (
+        <NavLink to="/login">
+          <Menu.Item
+            name="login"
+            NavLink={true}
+            active={activeItem === "login"}
+            onClick={this.handleItemClick}
+          />
+        </NavLink>
+      );
     }
-
-
-
 
     const { activeItem } = this.state;
     return (
