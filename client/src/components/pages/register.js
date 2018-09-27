@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Form, Button, Input, TextArea, Message } from "semantic-ui-react";
+import { Form, Button, Input, TextArea, Message, Dropdown } from "semantic-ui-react";
 
 class Register extends Component {
     constructor() {
@@ -9,15 +9,19 @@ class Register extends Component {
             username: "",
             password: "",
             redirect: null,
-            passwordMatch: null
+            passwordMatch: null,
+            selected: null
         };
         this.handleSubmit = this.handleSubmit.bind(this); //what is happening here?
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event) {
+    handleChange(event, data) {
+        console.log(data.value);
+
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            [data.name]: data.value
         });
         console.log(this.state);
     }
@@ -28,10 +32,7 @@ class Register extends Component {
                 passwordMatch: false
             })
         }
-        console.log("a");
         event.preventDefault();
-        console.log(this.state);
-        // TODO - validate!
         axios
             .post("/auth/register", {
                 username: this.state.username,
@@ -57,6 +58,22 @@ class Register extends Component {
     }
 
     render() {
+        const categories = [
+            {
+                text: 'Home Improvement',
+                value: 'Home Improvement'
+            },
+            {
+                text: 'Tutoring',
+                value: 'Tutoring'
+
+            },
+            {
+                text: 'Music',
+                value: 'Music'
+            }
+        ];
+
         let passwordMatch
         if (this.state.passwordMatch === false) {
             passwordMatch = <Message header="Password doesn't match" />
@@ -74,7 +91,10 @@ class Register extends Component {
                             control={Input}
                             label="Name"
                         />
+
+
                     </Form.Group>
+                    <Dropdown placeholder='Select talent category' name='talent' onChange={this.handleChange} selection options={categories} />
                     <Form.Group>
                         <Form.Field
                             onChange={this.handleChange}
@@ -116,6 +136,7 @@ class Register extends Component {
                             control={Input}
                             label="Zip Code"
                         />
+
                     </Form.Group>
                     <Form.Group>
                         <Form.Field
@@ -124,12 +145,12 @@ class Register extends Component {
                             control={TextArea}
                             label="Bio"
                         />
-                        <Form.Field
+                        {/* <Form.Field
                             onChange={this.handleChange}
                             name="talent"
                             control={TextArea}
                             label="Talents"
-                        />
+                        /> */}
                     </Form.Group>
                     <Form.Field
                         id="form-button-control-public"
@@ -144,3 +165,55 @@ class Register extends Component {
 }
 
 export default Register;
+
+
+// const { Dropdown } = semanticUIReact;
+
+// const languageOptions = [
+//     { key: 'eng', text: 'English', value: 'eng' },
+//     { key: 'spn', text: 'Spanish', value: 'spn' },
+//     { key: 'rus', text: 'Russian', value: 'Russian' },
+// ]
+
+// class App extends React.Component {
+
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             searchQuery: '',
+//             selected: null
+//         }
+//     }
+
+//     onChange = (e, data) => {
+//         console.log(data.value);
+//         this.setState({ selected: data.value });
+//     }
+
+//     onSearchChange = (e, data) => {
+//         console.log(data.searchQuery);
+//         this.setState({ searchQuery: data.searchQuery });
+//     }
+
+//     render() {
+//         const { searchQuery, selected } = this.state;
+//         return (
+//             <div>
+//                 <Dropdown
+//                     button
+//                     className='icon'
+//                     fluid
+//                     labeled
+//                     icon='world'
+//                     options={languageOptions}
+//                     search
+//                     text={searchQuery}
+//                     searchQuery={searchQuery}
+//                     value={selected}
+//                     onChange={this.onChange}
+//                     onSearchChange={this.onSearchChange}
+//                 />
+//             </div>
+//         );
+//     }
+// }

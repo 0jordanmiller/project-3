@@ -38,7 +38,6 @@ class App extends Component {
   }
 
   _login(username, password) {
-    // console.log("testing");
     axios
       .post("/auth/login", {
         username,
@@ -49,10 +48,6 @@ class App extends Component {
         if (response.status === 200) {
           // update the state
           this.verifyUserSession();
-          // this.setState({
-          //   loggedIn: true,
-          //   user: response.data.user
-          // });
         }
       });
     // console.log(this.state);
@@ -73,11 +68,6 @@ class App extends Component {
   }
 
   render() {
-    // let userObj
-    // if (this.state.user) {
-    //   userObj = this.state.user
-    //   console.log(userObj.name);
-    // }
 
     return (
       <Router>
@@ -93,7 +83,6 @@ class App extends Component {
               path="/profile"
               render={() => <Pages.Profile userData={this.state} />}
             />
-            <Route exact path="/searchresults" component={Pages.Searchpage} />
             <Route exact path="/register" render={() => <Pages.Register />} />
             <Route
               exact

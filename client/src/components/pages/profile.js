@@ -6,6 +6,17 @@ class Profile extends Component {
   constructor() {
     super();
     this.verifyUserSession = this.verifyUserSession.bind(this);
+    this.state = {
+      loggedIn: null,
+      user: {
+        name: '',
+        bio: '',
+        talent: '',
+        email: '',
+        phone: '',
+        zipcode: ''
+      }
+    };
   }
 
   componentDidMount() {
@@ -23,15 +34,16 @@ class Profile extends Component {
   }
 
   render() {
-    let header;
-    if (this.state) {
-      header = this.state.user.name;
-    }
-    // const name = this.state.user.name;
+
     return (
       <div>
         <br />
-        <Header content={header} as="h1" />
+        <Header content={this.state.user.name} as="h1" />
+        <Header content={this.state.user.talent} as="h1" />
+        <Header content={this.state.user.email} as="h1" />
+        <Header content={this.state.user.phone} as="h1" />
+        <Header content={this.state.user.zipcode} as="h1" />
+
       </div>
     );
   }
