@@ -5,6 +5,7 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const path = require("path");
 const mongoose = require("mongoose");
+
 // const passportSetup = require("./config/passport-setup");
 const routes = require("./routes");
 const app = express();
@@ -19,43 +20,37 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Add routes, both API and view
-app.use(passport.initialize());
 
-app.use(expressSession({ secret: 'mySecretKey' }));
+// app.use(session({ secret: 'mySecretKey' }));
 
-passport.serializeUser(function (user, done) {
-  done(null, user._id);
-});
-
-passport.deserializeUser(function (id, done) {
-  User.findById(id, function (err, user) {
-    done(err, user);
-  });
-});
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: true,
+    saveUninitialized: true
+  })
+); // session secret
 
 app.use(passport.initialize());
-
 app.use(passport.session()); // persistent login sessions
 
 app.use(routes);
 
-// Send every request to React app
-
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
-});
-
 // Connect to the Mongo DB
 
 mongoose.connect(
-<<<<<<< HEAD
-  process.env.MONGODB_URI || "mongodb://localhost/talentdb"
-=======
   process.env.MONGODB_URI || "mongodb://localhost/hidden_talents"
->>>>>>> 636f33bb864c17f7f69fe1f5af78ea6e572a65be
 );
 
+const db = mongoose.connection;
+db.on("error", err => {
+  console.log(`There was an error connecting to the database: ${err}`);
+});
+db.once("open", () => {
+  console.log(`You have successfully connected to your mongo database!`);
+});
+
 // Start the API server
-app.listen(PORT, function () {
+app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
