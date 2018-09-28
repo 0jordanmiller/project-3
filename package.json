@@ -26,6 +26,8 @@
     "express": "^4.15.4",
     "express-session": "^1.15.6",
     "if-env": "^1.0.4",
+    "mongod": "^2.0.0",
+    "mongodb-server": "^1.0.0",
     "mongoose": "^5.2.17",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
