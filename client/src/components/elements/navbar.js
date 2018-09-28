@@ -27,6 +27,7 @@ class Navbar extends Component {
   render() {
     // This tells the navbar to render either a login button or a message saying you're logged in
     // console.log(this.props.isLoggedIn);
+    const { activeItem } = this.state;
     let loggedInNavbar;
     let loginButton;
     let logoutButton;
@@ -53,7 +54,6 @@ class Navbar extends Component {
       );
     }
 
-    const { activeItem } = this.state;
     return (
       <div>
         <Menu size={"large"} secondary>

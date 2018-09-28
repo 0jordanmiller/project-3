@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default function() {
+export default function () {
   let userObj = null;
   const promise = new Promise((resolve, reject) => {
     axios
@@ -16,7 +16,14 @@ export default function() {
         } else {
           userObj = {
             loggedIn: false,
-            user: null
+            user: {
+              name: 'Not Logged In',
+              bio: '',
+              talent: '',
+              email: '',
+              phone: '',
+              zipcode: ''
+            }
           };
         }
         resolve(userObj);
