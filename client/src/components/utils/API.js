@@ -5,7 +5,7 @@ const BASEURL = function () {
   const key = key_arr[Math.floor(Math.random() * key_arr.length)]
   return 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=raleigh&key=' + key
 }
-
+  
 const APIKEY = "AIzaSyDsSOVbrDsQef9mJXVPXBjQ8UV6jnm2iCE"
 const { checkApiKey, makeRequest, buildResponse, buildResponseForPlaceDetails } = require("");
 module.exports = class GooglePlace {
