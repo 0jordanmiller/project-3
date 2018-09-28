@@ -7,7 +7,7 @@ const talentSchema = new Schema({
   email: { type: String, required: true },
   talent: { type: String, required: true },
   name: { type: String, required: true },
-  contact: { type: String, required: true },
+  phone: { type: String, required: true },
   bio: { type: String, required: true },
   zipcode: { type: Number, required: true }
 });
