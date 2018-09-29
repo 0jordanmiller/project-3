@@ -23,7 +23,7 @@ class Homepage extends Component {
     this.componentDidMount = this.componentDidMount.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
 
- 
+
     this.state = {
       loggedIn: null
     };
@@ -36,7 +36,7 @@ class Homepage extends Component {
     });
   }
 
-  
+
   //API================
   componentDidMount() {
     this.verifyUserSession();
@@ -64,7 +64,7 @@ class Homepage extends Component {
   // }
 
 
-//Second part of the Call============
+  //Second part of the Call============
   // onSearch() {
   //   console.log(this.state.zipcode);
   //   axios.post('/search', {
@@ -78,7 +78,7 @@ class Homepage extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     this.searchMaps(this.state.search);
-};
+  };
 
   render() {
     return (
@@ -97,7 +97,7 @@ class Homepage extends Component {
                 handleFormSubmit={this.handleFormSubmit}
                 handleInputChange={this.handleChange}
               />
-            
+
               {/* <Form.Input onChange={this.handleChange} value={this.state.value} label='Zipcode' name='zipcode' placeholder='zipcode' />
               <Form.Button onClick={this.onSearch}>Submit</Form.Button> */}
             </Form>
