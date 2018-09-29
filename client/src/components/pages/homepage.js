@@ -21,6 +21,8 @@ class Homepage extends Component {
     this.verifyUserSession();
   }
 
+  handleSearch() {}
+
   async verifyUserSession() {
     const userObj = await userCheck();
 
@@ -41,7 +43,7 @@ class Homepage extends Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Elements.SearchItem />>
+            <Elements.SearchItem />
           </Grid.Row>
           <Grid.Row>{/* <Searchpage /> */}</Grid.Row>
         </Grid>
