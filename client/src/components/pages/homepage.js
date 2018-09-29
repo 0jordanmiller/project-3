@@ -7,10 +7,8 @@ import Searchpage from "../elements/searchResults";
 import { Grid, Item, Form } from "semantic-ui-react";
 import API from "../utils/API";
 
-
 const categoryNames = ["Tutoring", "Home Improvement", "Music"];
 // const categoryDescriptions = ['description', 'description', 'description'];
-
 
 //User verify==========
 class Homepage extends Component {
@@ -22,7 +20,6 @@ class Homepage extends Component {
     this.searchMaps = this.searchMaps.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-
 
     this.state = {
       loggedIn: null
@@ -36,7 +33,6 @@ class Homepage extends Component {
     });
   }
 
-
   //API================
   componentDidMount() {
     this.verifyUserSession();
@@ -47,11 +43,12 @@ class Homepage extends Component {
 
   async verifyUserSession() {
     const userObj = await userCheck();
+  }
 
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
-    })
+    });
     console.log(this.state);
   }
 
@@ -67,7 +64,6 @@ class Homepage extends Component {
   //   })
   // }
 
-
   //Second part of the Call============
   // onSearch() {
   //   console.log(this.state.zipcode);
@@ -77,7 +73,6 @@ class Homepage extends Component {
   //     console.log('This is line 55', response);
   //   }); */
   // }
-
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -95,9 +90,6 @@ class Homepage extends Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-<<<<<<< HEAD
-            <Elements.SearchItem />
-=======
             <Form>
               <Elements.SearchForm
                 search={this.state.zipcode}
@@ -108,13 +100,11 @@ class Homepage extends Component {
               {/* <Form.Input onChange={this.handleChange} value={this.state.value} label='Zipcode' name='zipcode' placeholder='zipcode' />
               <Form.Button onClick={this.onSearch}>Submit</Form.Button> */}
             </Form>
-
->>>>>>> d9e1081e2d7bb3eccd88da9d93c7401ee57ccf83
           </Grid.Row>
 
           {/* <Grid.Row><Searchpage /></Grid.Row> */}
         </Grid>
-      </div >
+      </div>
     );
   }
 }
