@@ -1,10 +1,8 @@
 const router = require("express").Router();
-const db = require("../../controllers/talentController.js");
+const db = require("../../controllers/talentController");
 
-router.post("/search", (req, res) => {
-    console.log('!!!!!!!!!!!1line 5 index.js:', req.body);
-    db.findAll(req.body, res)
-    console.log('aaaa');
+router.get("/search", (req, res) => {
+    db.findAll({zipcode: [array]})
 });
 
 module.exports = router;
