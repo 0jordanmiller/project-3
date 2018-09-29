@@ -1,8 +1,10 @@
 const router = require('express').Router();
 const authRoutes = require('./authRoutes');
 const talentRoutes = require('./talent');
+const dbRoutes = require('./dbRoutes');
 const path = require('path');
 
+router.use(dbRoutes)
 router.use(authRoutes);
 router.use("/talent", talentRoutes);
 

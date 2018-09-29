@@ -30,10 +30,6 @@ router.get('/auth/user', (req, res, next) => {
   }
 })
 
-// router.get("/checkuser", (req, res) => {
-//   res.json(req.user);
-// });
-
 router.post("/auth/logout", (req, res) => {
   if (req.user) {
     req.session.destroy();
@@ -43,16 +39,6 @@ router.post("/auth/logout", (req, res) => {
     return res.json({ msg: "no user to log out!" });
   }
 });
-
-/* GET Registration Page */
-// router.get('/auth/signup', function (req, res) {
-//     res.render('register'/* , { message: req.flash('message') } */);
-// });
-
-/* Handle Registration POST */
-// router.get("/auth/register", (req, res) => {
-//   res.send("bread");
-// });
 
 router.post(
   "/auth/register",
